@@ -268,7 +268,7 @@ def register_all_coco_taco(root="datasets"):
     thing_classes = taco_metadata["thing_classes"]
 
     # BASE
-    cocotaco_train_base_json = os.path.join(root, "/fused_dataset/annotations/instances_train2014.json")
+    cocotaco_train_base_json = os.path.join(root, "fused_dataset/annotations/instances_train2014.json")
     cocotaco_train_base_images = os.path.join(root, "fused_dataset")
 
     register_coco_taco_dataset(
@@ -279,7 +279,7 @@ def register_all_coco_taco(root="datasets"):
         metadata=taco_metadata,
     )
 
-    cocotaco_val_base_json = os.path.join(root, "/fused_dataset/annotations/instances_val2014.json")
+    cocotaco_val_base_json = os.path.join(root, "fused_dataset/annotations/instances_val2014.json")
     cocotaco_val_base_images = os.path.join(root, "fused_dataset")
 
     register_coco_taco_dataset(
@@ -291,7 +291,7 @@ def register_all_coco_taco(root="datasets"):
     )
 
     # NOVEL
-    cocotaco_novel_json = os.path.join(root, "/fused_dataset/annotations.json")
+    cocotaco_novel_json = os.path.join(root, "fused_dataset/annotations.json")
     cocotaco_novel_images = os.path.join(root, "fused_dataset")
 
 
