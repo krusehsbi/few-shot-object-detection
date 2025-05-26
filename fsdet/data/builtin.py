@@ -20,7 +20,7 @@ from .builtin_meta import _get_builtin_metadata
 from .meta_coco import register_meta_coco
 from .meta_lvis import register_meta_lvis
 from .meta_pascal_voc import register_meta_pascal_voc
-from .meta_coco_taco import register_coco_taco_dataset, metadata, thing_classes
+from .meta_coco_taco import register_coco_taco_dataset
 
 # ==== Predefined datasets and splits for COCO ==========
 
