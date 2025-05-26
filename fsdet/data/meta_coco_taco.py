@@ -48,16 +48,16 @@ def dataset_loader(json_path, image_root, thing_classes):
 
 
 def register_coco_taco_dataset(name, json_path, image_root, thing_classes, metadata):
-    # Dataset registration
     DatasetCatalog.register(
         name,
         lambda: dataset_loader(json_path, image_root, thing_classes)
     )
 
-    # Metadata registration
     MetadataCatalog.get(name).set(
-        thing_classes=metadata["thing_classes"],
+        thing_classes=thing_classes,  # use the passed thing_classes here
         base_classes=metadata["base_classes"],
         novel_classes=metadata["novel_classes"],
-        evaluator_type="coco_taco"
+        evaluator_type="coco_taco",
+        json_file=json_path,
+        image_root=image_root,
     )
