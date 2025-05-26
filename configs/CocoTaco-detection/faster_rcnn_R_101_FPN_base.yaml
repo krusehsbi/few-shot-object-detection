@@ -7,8 +7,8 @@ MODEL:
   ROI_HEADS:
     NUM_CLASSES: 60
 DATASETS:
-  TRAIN: ('coco_taco_train',)
-  TEST: ('coco_taco_val',)
+  TRAIN: ('coco_taco_train_base',)
+  TEST: ('coco_taco_val_base',)
 SOLVER:
   IMS_PER_BATCH: 16
   STEPS: (85000, 100000)

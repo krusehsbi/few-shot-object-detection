@@ -267,24 +267,38 @@ def register_all_coco_taco(root="datasets"):
     taco_metadata = _get_builtin_metadata("coco_taco")
     thing_classes = taco_metadata["thing_classes"]
 
-    taco_train_json = os.path.join(root, "fused_dataset/fused_remapped.json")
-    taco_train_images = os.path.join(root, "fused_dataset")
+    # BASE
+    cocotaco_train_base_json = os.path.join(root, "/fused_dataset/annotations/instances_train2014.json")
+    cocotaco_train_base_images = os.path.join(root, "fused_dataset")
 
     register_coco_taco_dataset(
-        name="coco_taco_train",
-        json_path=taco_train_json,
-        image_root=taco_train_images,
+        name="coco_taco_train_base",
+        json_path=cocotaco_train_base_json,
+        image_root=cocotaco_train_base_images,
         thing_classes=thing_classes,
         metadata=taco_metadata,
     )
 
-    taco_val_json = os.path.join(root, "fused_dataset/annotations.json")
-    taco_val_images = os.path.join(root, "fused_dataset")
+    cocotaco_val_base_json = os.path.join(root, "/fused_dataset/annotations/instances_val2014.json")
+    cocotaco_val_base_images = os.path.join(root, "fused_dataset")
 
     register_coco_taco_dataset(
-        name="coco_taco_val",
-        json_path=taco_val_json,
-        image_root=taco_val_images,
+        name="coco_taco_val_base",
+        json_path=cocotaco_val_base_json,
+        image_root=cocotaco_val_base_images,
+        thing_classes=thing_classes,
+        metadata=taco_metadata,
+    )
+
+    # NOVEL
+    cocotaco_novel_json = os.path.join(root, "/fused_dataset/annotations.json")
+    cocotaco_novel_images = os.path.join(root, "fused_dataset")
+
+
+    register_coco_taco_dataset(
+        name="coco_taco_novel",
+        json_path=cocotaco_novel_json,
+        image_root=cocotaco_novel_images,
         thing_classes=thing_classes,
         metadata=taco_metadata,
     )
