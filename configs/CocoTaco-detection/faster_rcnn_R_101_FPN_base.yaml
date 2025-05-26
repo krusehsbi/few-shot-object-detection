@@ -5,7 +5,7 @@ MODEL:
   RESNETS:
     DEPTH: 101
   ROI_HEADS:
-    NUM_CLASSES: 60
+    NUM_CLASSES: 80
 DATASETS:
   TRAIN: ('coco_taco_train_base',)
   TEST: ('coco_taco_val_base',)
