@@ -20,6 +20,7 @@ from .builtin_meta import _get_builtin_metadata
 from .meta_coco import register_meta_coco
 from .meta_lvis import register_meta_lvis
 from .meta_pascal_voc import register_meta_pascal_voc
+from .meta_coco_taco import register_coco_taco_dataset, metadata, thing_classes
 
 # ==== Predefined datasets and splits for COCO ==========
 
@@ -262,8 +263,34 @@ def register_all_pascal_voc(root="datasets"):
         )
         MetadataCatalog.get(name).evaluator_type = "pascal_voc"
 
+def register_all_coco_taco(root="datasets"):
+    taco_metadata = _get_builtin_metadata("coco_taco")
+    thing_classes = taco_metadata["thing_classes"]
+
+    taco_train_json = os.path.join(root, "fused_dataset/fused_remapped.json")
+    taco_train_images = os.path.join(root, "fused_dataset")
+
+    register_coco_taco_dataset(
+        name="coco_taco_train",
+        json_path=taco_train_json,
+        image_root=taco_train_images,
+        thing_classes=thing_classes,
+        metadata=taco_metadata,
+    )
+
+    taco_val_json = os.path.join(root, "fused_dataset/annotations.json")
+    taco_val_images = os.path.join(root, "fused_dataset")
+
+    register_coco_taco_dataset(
+        name="coco_taco_val",
+        json_path=taco_val_json,
+        image_root=taco_val_images,
+        thing_classes=thing_classes,
+        metadata=taco_metadata,
+    )
 
 # Register them all under "./datasets"
 register_all_coco()
 register_all_lvis()
 register_all_pascal_voc()
+register_all_coco_taco()

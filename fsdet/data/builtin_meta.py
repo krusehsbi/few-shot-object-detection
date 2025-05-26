@@ -454,6 +454,116 @@ def _get_pascal_voc_fewshot_instances_meta():
     }
     return ret
 
+def _get_coco_taco_metadata():
+
+    base_classes = [
+        "person",
+        "bicycle",
+        "car",
+        "motorcycle",
+        "airplane",
+        "bus",
+        "train",
+        "truck",
+        "boat",
+        "traffic light",
+        "fire hydrant",
+        "stop sign",
+        "parking meter",
+        "bench",
+        "bird",
+        "cat",
+        "dog",
+        "horse",
+        "sheep",
+        "cow",
+        "elephant",
+        "bear",
+        "zebra",
+        "giraffe",
+        "backpack",
+        "umbrella",
+        "handbag",
+        "tie",
+        "suitcase",
+        "frisbee",
+        "skis",
+        "snowboard",
+        "sports ball",
+        "kite",
+        "baseball bat",
+        "baseball glove",
+        "skateboard",
+        "surfboard",
+        "tennis racket",
+        "bottle",
+        "wine glass",
+        "cup",
+        "fork",
+        "knife",
+        "spoon",
+        "bowl",
+        "banana",
+        "apple",
+        "sandwich",
+        "orange",
+        "broccoli",
+        "carrot",
+        "hot dog",
+        "pizza",
+        "donut",
+        "cake",
+        "chair",
+        "couch",
+        "potted plant",
+        "bed",
+        "dining table",
+        "toilet",
+        "tv",
+        "laptop",
+        "mouse",
+        "remote",
+        "keyboard",
+        "cell phone",
+        "microwave",
+        "oven",
+        "toaster",
+        "sink",
+        "refrigerator",
+        "book",
+        "clock",
+        "vase",
+        "scissors",
+        "teddy bear",
+        "hair drier",
+        "toothbrush",
+    ]
+
+
+    novel_classes=['Aluminium foil', 'Battery', 'Aluminium blister pack', 'Carded blister pack',
+                'Other plastic bottle', 'Clear plastic bottle', 'Glass bottle',
+                'Plastic bottle cap', 'Metal bottle cap', 'Broken glass', 'Food Can',
+                'Aerosol', 'Drink can', 'Toilet tube', 'Other carton', 'Egg carton',
+                'Drink carton', 'Corrugated carton', 'Meal carton', 'Pizza box', 'Paper cup',
+                'Disposable plastic cup', 'Foam cup', 'Glass cup', 'Other plastic cup',
+                'Food waste', 'Glass jar', 'Plastic lid', 'Metal lid', 'Other plastic',
+                'Magazine paper', 'Tissues', 'Wrapping paper', 'Normal paper', 'Paper bag',
+                'Plastified paper bag', 'Plastic film', 'Six pack rings', 'Garbage bag',
+                'Other plastic wrapper', 'Single-use carrier bag', 'Polypropylene bag',
+                'Crisp packet', 'Spread tub', 'Tupperware', 'Disposable food container',
+                'Foam food container', 'Other plastic container', 'Plastic glooves',
+                'Plastic utensils', 'Pop tab', 'Rope & strings', 'Scrap metal', 'Shoe',
+                'Squeezable tube', 'Plastic straw', 'Paper straw', 'Styrofoam piece',
+                'Unlabeled litter', 'Cigarette']
+    
+    thing_classes = base_classes + novel_classes
+
+    return {
+        "thing_classes": thing_classes,
+        "base_classes": base_classes,
+        "novel_classes": novel_classes,
+    }
+
 
 def _get_builtin_metadata(dataset_name):
     if dataset_name == "coco":
@@ -466,4 +576,7 @@ def _get_builtin_metadata(dataset_name):
         return _get_lvis_fewshot_instances_meta_v0_5()
     elif dataset_name == "pascal_voc_fewshot":
         return _get_pascal_voc_fewshot_instances_meta()
+    elif dataset_name == "coco_taco":
+        _get_coco_taco_metadata()
     raise KeyError("No built-in metadata for dataset {}".format(dataset_name))
+
