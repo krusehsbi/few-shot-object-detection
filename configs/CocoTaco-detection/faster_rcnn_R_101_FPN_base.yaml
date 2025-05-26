@@ -10,7 +10,7 @@ DATASETS:
   TRAIN: ('coco_taco_train_base',)
   TEST: ('coco_taco_val_base',)
 SOLVER:
-  IMS_PER_BATCH: 16
+  IMS_PER_BATCH: 8
   STEPS: (85000, 100000)
   MAX_ITER: 110000
 OUTPUT_DIR: "/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/faster_rcnn_R_101_FPN_base"
