@@ -577,6 +577,6 @@ def _get_builtin_metadata(dataset_name):
     elif dataset_name == "pascal_voc_fewshot":
         return _get_pascal_voc_fewshot_instances_meta()
     elif dataset_name == "coco_taco":
-        _get_coco_taco_metadata()
+        return _get_coco_taco_metadata()
     raise KeyError("No built-in metadata for dataset {}".format(dataset_name))
 
