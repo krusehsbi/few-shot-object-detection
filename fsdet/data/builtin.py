@@ -266,6 +266,8 @@ def register_all_pascal_voc(root="datasets"):
 def register_all_coco_taco(root="datasets"):
     taco_metadata = _get_builtin_metadata("coco_taco")
     thing_classes = taco_metadata["thing_classes"]
+    base_classes = taco_metadata["base_classes"]
+    novel_classes = taco_metadata["novel_classes"]
 
     # BASE
     cocotaco_train_base_json = "/content/fsdet/datasets/fused_dataset/annotations/instances_train2014.json"
@@ -277,7 +279,7 @@ def register_all_coco_taco(root="datasets"):
         name="coco_taco_train_base",
         json_path=cocotaco_train_base_json,
         image_root=cocotaco_train_base_images,
-        thing_classes=thing_classes,
+        thing_classes=base_classes,
         metadata=taco_metadata,
     )
 
@@ -288,7 +290,7 @@ def register_all_coco_taco(root="datasets"):
         name="coco_taco_val_base",
         json_path=cocotaco_val_base_json,
         image_root=cocotaco_val_base_images,
-        thing_classes=thing_classes,
+        thing_classes=base_classes,
         metadata=taco_metadata,
     )
 
@@ -301,7 +303,7 @@ def register_all_coco_taco(root="datasets"):
         name="coco_taco_novel",
         json_path=cocotaco_novel_json,
         image_root=cocotaco_novel_images,
-        thing_classes=thing_classes,
+        thing_classes=novel_classes,
         metadata=taco_metadata,
     )
 
