@@ -271,6 +271,8 @@ def register_all_coco_taco(root="datasets"):
     cocotaco_train_base_json = os.path.join(root, "fused_dataset/annotations/instances_train2014.json")
     cocotaco_train_base_images = os.path.join(root, "fused_dataset")
 
+    print(cocotaco_train_base_json)
+
     register_coco_taco_dataset(
         name="coco_taco_train_base",
         json_path=cocotaco_train_base_json,
