@@ -1,4 +1,5 @@
 from .coco_evaluation import COCOEvaluator
+from .coco_taco_evaluation import CocoTacoEvaluator
 from .evaluator import (
     DatasetEvaluator,
     DatasetEvaluators,
