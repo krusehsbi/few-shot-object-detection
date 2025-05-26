@@ -269,7 +269,7 @@ def register_all_coco_taco(root="datasets"):
 
     # BASE
     cocotaco_train_base_json = "/content/fsdet/datasets/fused_dataset/annotations/instances_train2014.json"
-    cocotaco_train_base_images = "/content/fsdet/datasets/fused_dataset"
+    cocotaco_train_base_images = "/content/fsdet/datasets/fused_dataset/train2014"
 
     print(cocotaco_train_base_json)
 
@@ -282,7 +282,7 @@ def register_all_coco_taco(root="datasets"):
     )
 
     cocotaco_val_base_json = "/content/fsdet/datasets/fused_dataset/annotations/instances_val2014.json"
-    cocotaco_val_base_images = "/content/fsdet/datasets/fused_dataset"
+    cocotaco_val_base_images = "/content/fsdet/datasets/fused_dataset/val2014"
 
     register_coco_taco_dataset(
         name="coco_taco_val_base",
