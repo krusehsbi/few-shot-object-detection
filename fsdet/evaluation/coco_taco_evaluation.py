@@ -82,10 +82,11 @@ class CocoTacoEvaluator(DatasetEvaluator):
             return {}
 
         if self._output_dir:
-            PathManager.mkdirs(self._output_dir)
+            os.makedirs(self._output_dir, exist_ok=True)  # Ensure directory exists
             file_path = os.path.join(self._output_dir, "instances_predictions.pth")
             with PathManager.open(file_path, "wb") as f:
                 torch.save(self._predictions, f)
+
 
         self._results = OrderedDict()
         if "instances" in self._predictions[0]:
@@ -104,12 +105,14 @@ class CocoTacoEvaluator(DatasetEvaluator):
                 result["category_id"] = reverse_id_mapping[result["category_id"]]
 
         if self._output_dir:
+            os.makedirs(self._output_dir, exist_ok=True)
             file_path = os.path.join(self._output_dir, "fused_instances_results.json")
             self._logger.info(f"Saving fused results to {file_path}")
             with PathManager.open(file_path, "w") as f:
                 import json
                 f.write(json.dumps(self._coco_results))
                 f.flush()
+
 
         if not self._do_evaluation:
             self._logger.info("Annotations not available for evaluation.")
