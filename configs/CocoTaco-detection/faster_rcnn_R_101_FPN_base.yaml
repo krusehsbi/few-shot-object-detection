@@ -13,6 +13,7 @@ SOLVER:
   IMS_PER_BATCH: 8
   STEPS: (85000, 100000)
   MAX_ITER: 110000
+  CHECKPOINT_PERIOD: 10000
 TEST:
   EVAL_PERIOD: 27500
 OUTPUT_DIR: "/content/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/faster_rcnn_R_101_FPN_base"
