@@ -53,17 +53,12 @@ def register_coco_taco_dataset(name, json_path, image_root, thing_classes, metad
         lambda: dataset_loader(json_path, image_root, thing_classes),
     )
 
-    if "_base" in name or "_novel" in name:
-        split = "base" if "_base" in name else "novel"
-        metadata["thing_dataset_id_to_contiguous_id"] = metadata[
-            "{}_dataset_id_to_contiguous_id".format(split)
-        ]
-        metadata["thing_classes"] = metadata["{}_classes".format(split)]
-
     MetadataCatalog.get(name).set(
         json_file=json_path,
         image_root=image_root,
-        evaluator_type="coco",
-        dirname="datasets/coco",
-        **metadata,
-    )
+        evaluator_type="coco_taco",
+        dirname="datasets/fused_dataset",
+        thing_classes=metadata["thing_classes"],
+        thing_dataset_id_to_contiguous_id=metadata["thing_dataset_id_to_contiguous_id"],
+    )   
+
