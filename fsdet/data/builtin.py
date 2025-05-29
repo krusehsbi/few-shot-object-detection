@@ -280,7 +280,7 @@ def register_all_coco_taco(root="datasets"):
         json_path=cocotaco_train_base_json,
         image_root=cocotaco_train_base_images,
         thing_classes=base_classes,
-        metadata=taco_metadata,
+        metadata=_get_builtin_metadata("coco"),
     )
 
     cocotaco_val_base_json = "/content/fsdet/datasets/fused_dataset/annotations/instances_val2014.json"
@@ -291,7 +291,7 @@ def register_all_coco_taco(root="datasets"):
         json_path=cocotaco_val_base_json,
         image_root=cocotaco_val_base_images,
         thing_classes=base_classes,
-        metadata=taco_metadata,
+        metadata=_get_builtin_metadata("coco"),
     )
 
     # NOVEL
