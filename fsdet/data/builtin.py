@@ -304,7 +304,7 @@ def register_all_coco_taco(root="datasets"):
         json_path=cocotaco_novel_json,
         image_root=cocotaco_novel_images,
         thing_classes=novel_classes,
-        metadata=_get_builtin_metadata("coco_taco"),
+        metadata=_get_builtin_metadata("coco_taco_fewshot"),
     )
 
 # Register them all under "./datasets"
