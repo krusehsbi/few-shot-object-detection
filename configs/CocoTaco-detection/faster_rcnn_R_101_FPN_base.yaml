@@ -15,5 +15,5 @@ SOLVER:
   MAX_ITER: 110000
   CHECKPOINT_PERIOD: 10000
 TEST:
-  EVAL_PERIOD: 1000
+  EVAL_PERIOD: 20000
 OUTPUT_DIR: "/content/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/faster_rcnn_R_101_FPN_base_new"
