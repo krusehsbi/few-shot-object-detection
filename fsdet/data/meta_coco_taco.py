@@ -50,14 +50,20 @@ def dataset_loader(json_path, image_root, thing_classes):
 def register_coco_taco_dataset(name, json_path, image_root, thing_classes, metadata):
     DatasetCatalog.register(
         name,
-        lambda: dataset_loader(json_path, image_root, thing_classes)
+        lambda: dataset_loader(json_path, image_root, thing_classes),
     )
 
+    if "_base" in name or "_novel" in name:
+        split = "base" if "_base" in name else "novel"
+        metadata["thing_dataset_id_to_contiguous_id"] = metadata[
+            "{}_dataset_id_to_contiguous_id".format(split)
+        ]
+        metadata["thing_classes"] = metadata["{}_classes".format(split)]
+
     MetadataCatalog.get(name).set(
-        thing_classes=thing_classes,  # use the passed thing_classes here
-        base_classes=metadata["base_classes"],
-        novel_classes=metadata["novel_classes"],
-        evaluator_type="coco_taco",
         json_file=json_path,
         image_root=image_root,
+        evaluator_type="coco",
+        dirname="datasets/coco",
+        **metadata,
     )
