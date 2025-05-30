@@ -270,8 +270,8 @@ def register_all_coco_taco(root="datasets"):
     novel_classes = taco_metadata["novel_classes"]
 
     # BASE
-    cocotaco_train_base_json = "/content/fsdet/datasets/fused_dataset/annotations/instances_train2014.json"
-    cocotaco_train_base_images = "/content/fsdet/datasets/fused_dataset/train2014"
+    cocotaco_train_base_json = "/content/fsdet/datasets/cocosplit/trainvalno5k.json"
+    cocotaco_train_base_images = "/content/fsdet/datasets/cocosplit/trainval2014"
 
     print(cocotaco_train_base_json)
 
@@ -283,8 +283,8 @@ def register_all_coco_taco(root="datasets"):
         metadata=_get_builtin_metadata("coco_taco"),
     )
 
-    cocotaco_val_base_json = "/content/fsdet/datasets/fused_dataset/annotations/instances_val2014.json"
-    cocotaco_val_base_images = "/content/fsdet/datasets/fused_dataset/val2014"
+    cocotaco_val_base_json = "/content/fsdet/datasets/cocosplit/5k.json"
+    cocotaco_val_base_images = "/content/fsdet/datasets/cocosplit/trainval2014"
 
     register_coco_taco_dataset(
         name="coco_taco_val_base",
