@@ -6,7 +6,7 @@ MODEL:
   MASK_ON: False
 
 DATASETS:
-  TRAIN: ('coco_taco_trainval_base',)
+  TRAIN: ('coco_taco_train_base',)
   TEST: ('coco_taco_test_base',)
 
 SOLVER:
