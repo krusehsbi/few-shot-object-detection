@@ -7,7 +7,7 @@ MODEL:
 
 DATASETS:
   TRAIN: ('coco_taco_train_base',)
-  TEST: ('coco_taco_test_base',)
+  TEST: ('coco_taco_val_base',)
 
 SOLVER:
   IMS_PER_BATCH: 16
