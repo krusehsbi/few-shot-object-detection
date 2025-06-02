@@ -295,7 +295,7 @@ def register_all_coco_taco(root="datasets"):
     )
 
     # NOVEL
-    metadata = _get_builtin_metadata("coco_taco")
+    metadata = _get_builtin_metadata("coco_taco_fewshot")
 
     # 1shots
     register_coco_taco_dataset(
