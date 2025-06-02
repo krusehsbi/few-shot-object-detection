@@ -375,6 +375,7 @@ PASCAL_VOC_BASE_CATEGORIES = {
     ],
 }
 
+TACO_CATEGORIES = [{"id": 1, "name": "Aluminium foil", "category": "Aluminium foil"}, {"id": 2, "name": "Bottle", "category": "Bottle"}, {"id": 3, "name": "Bottle cap", "category": "Bottle cap"}, {"id": 4, "name": "Broken glass", "category": "Broken glass"}, {"id": 5, "name": "Can", "category": "Can"}, {"id": 6, "name": "Carton", "category": "Carton"}, {"id": 7, "name": "Cigarette", "category": "Cigarette"}, {"id": 8, "name": "Cup", "category": "Cup"}, {"id": 9, "name": "Lid", "category": "Lid"}, {"id": 10, "name": "Other plastic", "category": "Other plastic"}, {"id": 11, "name": "Paper", "category": "Paper"}, {"id": 12, "name": "Paper bag", "category": "Paper bag"}, {"id": 13, "name": "Plastic bag & wrapper", "category": "Plastic bag & wrapper"}, {"id": 14, "name": "Plastic container", "category": "Plastic container"}, {"id": 15, "name": "Plastic utensils", "category": "Plastic utensils"}, {"id": 16, "name": "Pop tab", "category": "Pop tab"}, {"id": 17, "name": "Rope & strings", "category": "Rope & strings"}, {"id": 18, "name": "Scrap metal", "category": "Scrap metal"}, {"id": 19, "name": "Straw", "category": "Straw"}, {"id": 20, "name": "Styrofoam piece", "category": "Styrofoam piece"}, {"id": 21, "name": "Unlabeled litter", "category": "Unlabeled litter"}]
 
 def _get_coco_instances_meta():
     thing_ids = [k["id"] for k in COCO_CATEGORIES if k["isthing"] == 1]
@@ -502,50 +503,18 @@ def _get_coco_taco_metadata():
 
 
 def _get_coco_taco_metadata_fewshot():
-    base_classes = [
-        "person", "bicycle", "car", "motorcycle", "airplane", "bus",
-        "train", "truck", "boat", "traffic light", "fire hydrant",
-        "stop sign", "parking meter", "bench", "bird", "cat", "dog",
-        "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe",
-        "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee",
-        "skis", "snowboard", "sports ball", "kite", "baseball bat",
-        "baseball glove", "skateboard", "surfboard", "tennis racket",
-        "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl",
-        "banana", "apple", "sandwich", "orange", "broccoli", "carrot",
-        "hot dog", "pizza", "donut", "cake", "chair", "couch", "potted plant",
-        "bed", "dining table", "toilet", "tv", "laptop", "mouse", "remote",
-        "keyboard", "cell phone", "microwave", "oven", "toaster", "sink",
-        "refrigerator", "book", "clock", "vase", "scissors", "teddy bear",
-        "hair drier", "toothbrush"
-    ]
-
-    novel_classes = [
-        'Aluminium foil', 'Battery', 'Aluminium blister pack', 'Carded blister pack',
-        'Other plastic bottle', 'Clear plastic bottle', 'Glass bottle',
-        'Plastic bottle cap', 'Metal bottle cap', 'Broken glass', 'Food Can',
-        'Aerosol', 'Drink can', 'Toilet tube', 'Other carton', 'Egg carton',
-        'Drink carton', 'Corrugated carton', 'Meal carton', 'Pizza box', 'Paper cup',
-        'Disposable plastic cup', 'Foam cup', 'Glass cup', 'Other plastic cup',
-        'Food waste', 'Glass jar', 'Plastic lid', 'Metal lid', 'Other plastic',
-        'Magazine paper', 'Tissues', 'Wrapping paper', 'Normal paper', 'Paper bag',
-        'Plastified paper bag', 'Plastic film', 'Six pack rings', 'Garbage bag',
-        'Other plastic wrapper', 'Single-use carrier bag', 'Polypropylene bag',
-        'Crisp packet', 'Spread tub', 'Tupperware', 'Disposable food container',
-        'Foam food container', 'Other plastic container', 'Plastic glooves',
-        'Plastic utensils', 'Pop tab', 'Rope & strings', 'Scrap metal', 'Shoe',
-        'Squeezable tube', 'Plastic straw', 'Paper straw', 'Styrofoam piece',
-        'Unlabeled litter', 'Cigarette'
-    ]
-
-    thing_classes = base_classes
-    thing_dataset_id_to_contiguous_id = {i + 1: i for i in range(len(thing_classes))}
-
-    return {
-        "thing_classes": novel_classes,
-        "base_classes": base_classes,
-        "novel_classes": novel_classes,
+    thing_ids = [k["id"] for k in TACO_CATEGORIES]
+    thing_colors = [k["color"] for k in TACO_CATEGORIES]
+    assert len(thing_ids) == 21, len(thing_ids)
+    # Mapping from the incontiguous TACO category id to an id in [0, 21]
+    thing_dataset_id_to_contiguous_id = {k: i for i, k in enumerate(thing_ids)}
+    thing_classes = [k["name"] for k in TACO_CATEGORIES]
+    ret = {
         "thing_dataset_id_to_contiguous_id": thing_dataset_id_to_contiguous_id,
+        "thing_classes": thing_classes,
+        "thing_colors": thing_colors,
     }
+    return ret
 
 
 def _get_builtin_metadata(dataset_name):

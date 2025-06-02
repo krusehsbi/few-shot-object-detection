@@ -295,17 +295,23 @@ def register_all_coco_taco(root="datasets"):
     )
 
     # NOVEL
-    cocotaco_novel_json = "/content/fsdet/datasets/fused_dataset/annotations.json"
-    cocotaco_novel_images = "/content/fsdet/datasets/fused_dataset"
 
-
+    # 1shots
     register_coco_taco_dataset(
-        name="coco_taco_novel",
-        json_path=cocotaco_novel_json,
-        image_root=cocotaco_novel_images,
-        thing_classes=novel_classes,
+        name="taco_1shot_42_train",
+        json_path="/content/fsdet/datasets/TACO/fewshot_splits/1shot/seed42/train.json",
+        image_root="/content/fsdet/datasets/TACO",
         metadata=_get_builtin_metadata("coco_taco_fewshot"),
     )
+
+    register_coco_taco_dataset(
+        name="taco_1shot_42_val",
+        json_path="/content/fsdet/datasets/TACO/fewshot_splits/1shot/seed42/val.json",
+        image_root="/content/fsdet/datasets/TACO",
+        metadata=_get_builtin_metadata("coco_taco_fewshot"),
+    )
+
+
 
 # Register them all under "./datasets"
 register_all_coco()
