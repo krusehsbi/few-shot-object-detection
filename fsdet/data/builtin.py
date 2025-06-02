@@ -314,6 +314,23 @@ def register_all_coco_taco(root="datasets"):
         metadata=_get_builtin_metadata("coco_taco_fewshot"),
     )
 
+    # 5shots
+    register_coco_taco_dataset(
+        name="taco_5shot_42_train",
+        json_path="/content/fsdet/datasets/TACO/fewshot_splits/5shot/seed42/train.json",
+        image_root="/content/fsdet/datasets/TACO",
+        thing_classes=metadata["thing_classes"],
+        metadata=_get_builtin_metadata("coco_taco_fewshot"),
+    )
+
+    register_coco_taco_dataset(
+        name="taco_5shot_42_val",
+        json_path="/content/fsdet/datasets/TACO/fewshot_splits/5shot/seed42/val.json",
+        image_root="/content/fsdet/datasets/TACO",
+        thing_classes=metadata["thing_classes"],
+        metadata=_get_builtin_metadata("coco_taco_fewshot"),
+    )
+
 
 
 # Register them all under "./datasets"
