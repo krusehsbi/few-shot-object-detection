@@ -301,6 +301,7 @@ def register_all_coco_taco(root="datasets"):
         name="taco_1shot_42_train",
         json_path="/content/fsdet/datasets/TACO/fewshot_splits/1shot/seed42/train.json",
         image_root="/content/fsdet/datasets/TACO",
+        thing_classes=[],
         metadata=_get_builtin_metadata("coco_taco_fewshot"),
     )
 
@@ -308,6 +309,7 @@ def register_all_coco_taco(root="datasets"):
         name="taco_1shot_42_val",
         json_path="/content/fsdet/datasets/TACO/fewshot_splits/1shot/seed42/val.json",
         image_root="/content/fsdet/datasets/TACO",
+        thing_classes=[],
         metadata=_get_builtin_metadata("coco_taco_fewshot"),
     )
 
