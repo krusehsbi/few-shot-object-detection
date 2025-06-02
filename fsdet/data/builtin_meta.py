@@ -375,7 +375,29 @@ PASCAL_VOC_BASE_CATEGORIES = {
     ],
 }
 
-TACO_CATEGORIES = [{"id": 1, "name": "Aluminium foil", "category": "Aluminium foil"}, {"id": 2, "name": "Bottle", "category": "Bottle"}, {"id": 3, "name": "Bottle cap", "category": "Bottle cap"}, {"id": 4, "name": "Broken glass", "category": "Broken glass"}, {"id": 5, "name": "Can", "category": "Can"}, {"id": 6, "name": "Carton", "category": "Carton"}, {"id": 7, "name": "Cigarette", "category": "Cigarette"}, {"id": 8, "name": "Cup", "category": "Cup"}, {"id": 9, "name": "Lid", "category": "Lid"}, {"id": 10, "name": "Other plastic", "category": "Other plastic"}, {"id": 11, "name": "Paper", "category": "Paper"}, {"id": 12, "name": "Paper bag", "category": "Paper bag"}, {"id": 13, "name": "Plastic bag & wrapper", "category": "Plastic bag & wrapper"}, {"id": 14, "name": "Plastic container", "category": "Plastic container"}, {"id": 15, "name": "Plastic utensils", "category": "Plastic utensils"}, {"id": 16, "name": "Pop tab", "category": "Pop tab"}, {"id": 17, "name": "Rope & strings", "category": "Rope & strings"}, {"id": 18, "name": "Scrap metal", "category": "Scrap metal"}, {"id": 19, "name": "Straw", "category": "Straw"}, {"id": 20, "name": "Styrofoam piece", "category": "Styrofoam piece"}, {"id": 21, "name": "Unlabeled litter", "category": "Unlabeled litter"}]
+TACO_CATEGORIES = [
+    {"id": 1, "name": "Aluminium foil", "category": "Aluminium foil", "color": [255, 99, 71]},
+    {"id": 2, "name": "Bottle", "category": "Bottle", "color": [30, 144, 255]},
+    {"id": 3, "name": "Bottle cap", "category": "Bottle cap", "color": [60, 179, 113]},
+    {"id": 4, "name": "Broken glass", "category": "Broken glass", "color": [138, 43, 226]},
+    {"id": 5, "name": "Can", "category": "Can", "color": [255, 215, 0]},
+    {"id": 6, "name": "Carton", "category": "Carton", "color": [255, 140, 0]},
+    {"id": 7, "name": "Cigarette", "category": "Cigarette", "color": [220, 20, 60]},
+    {"id": 8, "name": "Cup", "category": "Cup", "color": [100, 149, 237]},
+    {"id": 9, "name": "Lid", "category": "Lid", "color": [0, 206, 209]},
+    {"id": 10, "name": "Other plastic", "category": "Other plastic", "color": [127, 255, 0]},
+    {"id": 11, "name": "Paper", "category": "Paper", "color": [186, 85, 211]},
+    {"id": 12, "name": "Paper bag", "category": "Paper bag", "color": [244, 164, 96]},
+    {"id": 13, "name": "Plastic bag & wrapper", "category": "Plastic bag & wrapper", "color": [0, 191, 255]},
+    {"id": 14, "name": "Plastic container", "category": "Plastic container", "color": [154, 205, 50]},
+    {"id": 15, "name": "Plastic utensils", "category": "Plastic utensils", "color": [255, 105, 180]},
+    {"id": 16, "name": "Pop tab", "category": "Pop tab", "color": [70, 130, 180]},
+    {"id": 17, "name": "Rope & strings", "category": "Rope & strings", "color": [72, 209, 204]},
+    {"id": 18, "name": "Scrap metal", "category": "Scrap metal", "color": [255, 165, 0]},
+    {"id": 19, "name": "Straw", "category": "Straw", "color": [34, 139, 34]},
+    {"id": 20, "name": "Styrofoam piece", "category": "Styrofoam piece", "color": [218, 112, 214]},
+    {"id": 21, "name": "Unlabeled litter", "category": "Unlabeled litter", "color": [105, 105, 105]}
+]
 
 def _get_coco_instances_meta():
     thing_ids = [k["id"] for k in COCO_CATEGORIES if k["isthing"] == 1]
