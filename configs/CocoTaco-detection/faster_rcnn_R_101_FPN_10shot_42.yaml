@@ -12,8 +12,8 @@ MODEL:
   PROPOSAL_GENERATOR:
     FREEZE: True
 DATASETS:
-  TRAIN: ('taco_1shot_42_train',)
-  TEST: ('taco_1shot_42_val',)
+  TRAIN: ('taco_10shot_42_train',)
+  TEST: ('taco_10shot_42_val',)
 SOLVER:
   IMS_PER_BATCH: 16
   BASE_LR: 0.01
@@ -23,4 +23,4 @@ SOLVER:
   WARMUP_ITERS: 0
 TEST:
   EVAL_PERIOD: 1000
-OUTPUT_DIR: "/content/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/1shot_42"
+OUTPUT_DIR: "/content/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/10shot_42"
