@@ -14,7 +14,7 @@ MODEL:
   PROPOSAL_GENERATOR:
     FREEZE: True
   ANCHOR_GENERATOR:
-    SIZES: [[16], [32], [64], [128], [256]]
+    SIZES: [[8], [16], [32], [64], [128, 256]]
     ASPECT_RATIOS: [[0.5, 1.0, 2.0]]
   RPN:
     NMS_THRESH: 0.5
