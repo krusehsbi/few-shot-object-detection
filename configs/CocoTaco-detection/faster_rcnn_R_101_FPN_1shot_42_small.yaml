@@ -29,4 +29,4 @@ INPUT:
   MAX_SIZE_TEST: 1600
 TEST:
   EVAL_PERIOD: 500
-OUTPUT_DIR: "/content/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/1shot_42"
+OUTPUT_DIR: "/content/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/1shot_42_small"
