@@ -395,6 +395,26 @@ TACO_CATEGORIES = [
   {"id": 17, "name": "Styrofoam piece", "category": "Styrofoam piece", "color": [46, 139, 87]}
 ]
 
+TACO_CATEGORIES_HIGHSHOT = [
+  {"id": 1, "name": "Aluminium foil", "category": "Aluminium foil", "color": [192, 192, 192]},
+  {"id": 2, "name": "Bottle", "category": "Bottle", "color": [0, 123, 255]},
+  {"id": 3, "name": "Bottle cap", "category": "Bottle cap", "color": [0, 102, 204]},
+  {"id": 4, "name": "Broken glass", "category": "Broken glass", "color": [173, 216, 230]},
+  {"id": 5, "name": "Can", "category": "Can", "color": [255, 99, 71]},
+  {"id": 6, "name": "Carton", "category": "Carton", "color": [255, 204, 153]},
+  {"id": 7, "name": "Cigarette", "category": "Cigarette", "color": [160, 82, 45]},
+  {"id": 8, "name": "Cup", "category": "Cup", "color": [255, 182, 193]},
+  {"id": 9, "name": "Lid", "category": "Lid", "color": [128, 0, 128]},
+  {"id": 10, "name": "Other plastic", "category": "Other plastic", "color": [255, 255, 0]},
+  {"id": 11, "name": "Paper", "category": "Paper", "color": [245, 245, 220]},
+  {"id": 12, "name": "Plastic bag & wrapper", "category": "Plastic bag & wrapper", "color": [0, 255, 255]},
+  {"id": 13, "name": "Plastic container", "category": "Plastic container", "color": [102, 255, 102]},
+  {"id": 14, "name": "Pop tab", "category": "Pop tab", "color": [105, 105, 105]},
+  {"id": 15, "name": "Straw", "category": "Straw", "color": [255, 20, 147]},
+  {"id": 16, "name": "Styrofoam piece", "category": "Styrofoam piece", "color": [176, 224, 230]}
+]
+
+
 def _get_coco_instances_meta():
     thing_ids = [k["id"] for k in COCO_CATEGORIES if k["isthing"] == 1]
     thing_colors = [k["color"] for k in COCO_CATEGORIES if k["isthing"] == 1]
@@ -534,6 +554,20 @@ def _get_coco_taco_metadata_fewshot():
     }
     return ret
 
+def _get_coco_taco_metadata_highshot():
+    thing_ids = [k["id"] for k in TACO_CATEGORIES_HIGHSHOT]
+    thing_colors = [k["color"] for k in TACO_CATEGORIES_HIGHSHOT]
+    assert len(thing_ids) == 16, len(thing_ids)
+    # Mapping from the incontiguous TACO category id to an id in [0, 16]
+    thing_dataset_id_to_contiguous_id = {k: i for i, k in enumerate(thing_ids)}
+    thing_classes = [k["name"] for k in TACO_CATEGORIES_HIGHSHOT]
+    ret = {
+        "thing_dataset_id_to_contiguous_id": thing_dataset_id_to_contiguous_id,
+        "thing_classes": thing_classes,
+        "thing_colors": thing_colors,
+    }
+    return ret
+
 
 def _get_builtin_metadata(dataset_name):
     if dataset_name == "coco":
@@ -550,5 +584,7 @@ def _get_builtin_metadata(dataset_name):
         return _get_coco_taco_metadata()
     elif dataset_name == "coco_taco_fewshot":
         return _get_coco_taco_metadata_fewshot()
+    elif dataset_name == "coco_taco_highshot":
+        return _get_coco_taco_metadata_highshot()
     raise KeyError("No built-in metadata for dataset {}".format(dataset_name))
 
