@@ -577,7 +577,7 @@ def _get_coco_taco_metadata_highshot():
 def _get_coco_taco_metadata_hard():
     thing_ids = [k["id"] for k in TACO_CATEGORIES_HARD]
     thing_colors = [k["color"] for k in TACO_CATEGORIES_HARD]
-    assert len(thing_ids) == 16, len(thing_ids)
+    assert len(thing_ids) == 3, len(thing_ids)
     # Mapping from the incontiguous TACO category id to an id in [0, 3]
     thing_dataset_id_to_contiguous_id = {k: i for i, k in enumerate(thing_ids)}
     thing_classes = [k["name"] for k in TACO_CATEGORIES_HARD]
