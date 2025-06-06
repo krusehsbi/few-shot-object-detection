@@ -367,6 +367,24 @@ def register_all_coco_taco(root="datasets"):
         metadata=_get_builtin_metadata("coco_taco_highshot"),
     )
 
+    ## 30 hardshot
+    metadata=_get_builtin_metadata("coco_taco_hard")
+    register_coco_taco_dataset(
+        name = "taco_30shot_42_hard_train",
+        json_path="/content/fsdet/datasets/TACO/hard_splits/30shot/seed42/train.json",
+        image_root="/content/fsdet/datasets/TACO",
+        thing_classes=metadata["thing_classes"],
+        metadata=_get_builtin_metadata("coco_taco_hard"),
+    )
+
+    register_coco_taco_dataset(
+        name = "taco_30shot_42_hard_train",
+        json_path="/content/fsdet/datasets/TACO/hard_splits/30shot/seed42/val.json",
+        image_root="/content/fsdet/datasets/TACO",
+        thing_classes=metadata["thing_classes"],
+        metadata=_get_builtin_metadata("coco_taco_hard"),
+    )
+
 # Register them all under "./datasets"
 register_all_coco()
 register_all_lvis()
