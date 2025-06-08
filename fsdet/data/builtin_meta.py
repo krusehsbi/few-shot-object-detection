@@ -420,6 +420,8 @@ TACO_CATEGORIES_HARD = [
     {"id": 14, "name": "Pop tab", "category": "Pop tab", "color": [105, 105, 105]},
 ]
 
+CIGBUTTS_CATEGORIES = [{"supercategory": "litter", "id": 1, "name": "cig_butt", "color": [160, 82, 45]}]
+
 def _get_coco_instances_meta():
     thing_ids = [k["id"] for k in COCO_CATEGORIES if k["isthing"] == 1]
     thing_colors = [k["color"] for k in COCO_CATEGORIES if k["isthing"] == 1]
@@ -588,6 +590,19 @@ def _get_coco_taco_metadata_hard():
     }
     return ret
 
+def _get_cigbutts_metadata():
+    thing_ids = [k["id"] for k in CIGBUTTS_CATEGORIES]
+    thing_colors = [k["color"] for k in CIGBUTTS_CATEGORIES]
+    assert len(thing_ids) == 1, len(thing_ids)
+    thing_dataset_id_to_contiguous_id = {k: i for i, k in enumerate(thing_ids)}
+    thing_classes = [k["name"] for k in CIGBUTTS_CATEGORIES]
+    ret = {
+        "thing_dataset_id_to_contiguous_id": thing_dataset_id_to_contiguous_id,
+        "thing_classes": thing_classes,
+        "thing_colors": thing_colors,
+    }
+    return ret
+
 def _get_builtin_metadata(dataset_name):
     if dataset_name == "coco":
         return _get_coco_instances_meta()
@@ -607,5 +622,7 @@ def _get_builtin_metadata(dataset_name):
         return _get_coco_taco_metadata_highshot()
     elif dataset_name == "coco_taco_hard":
         return _get_coco_taco_metadata_hard()
+    elif dataset_name == "cigbutts":
+        return _get_cigbutts_metadata()
     raise KeyError("No built-in metadata for dataset {}".format(dataset_name))
 

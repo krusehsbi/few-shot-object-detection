@@ -21,6 +21,7 @@ from .meta_coco import register_meta_coco
 from .meta_lvis import register_meta_lvis
 from .meta_pascal_voc import register_meta_pascal_voc
 from .meta_coco_taco import register_coco_taco_dataset
+from .meta_cigbutts import register_cigbutt_dataset
 
 # ==== Predefined datasets and splits for COCO ==========
 
@@ -385,8 +386,27 @@ def register_all_coco_taco(root="datasets"):
         metadata=_get_builtin_metadata("coco_taco_hard"),
     )
 
+def register_all_cigbutt():
+    metadata = _get_builtin_metadata("cigbutts")
+    register_cigbutt_dataset(
+        name = "cigbutts_30shot_train",
+        json_path="/content/fsdet/datasets/cig_butts/train.json",
+        image_root="/content/fsdet/datasets/cig_butts",
+        thing_classes=metadata["thing_classes"],
+        metadata=_get_builtin_metadata("cigbutts"),
+    )
+
+    register_cigbutt_dataset(
+        name = "cigbutts_30shot_val",
+        json_path="/content/fsdet/datasets/cig_butts/val.json",
+        image_root="/content/fsdet/datasets/cig_butts",
+        thing_classes=metadata["thing_classes"],
+        metadata=_get_builtin_metadata("cigbutts"),
+    )
+
 # Register them all under "./datasets"
 register_all_coco()
 register_all_lvis()
 register_all_pascal_voc()
 register_all_coco_taco()
+register_all_cigbutt()
