@@ -420,7 +420,7 @@ TACO_CATEGORIES_HARD = [
     {"id": 14, "name": "Pop tab", "category": "Pop tab", "color": [105, 105, 105]},
 ]
 
-CIGBUTTS_CATEGORIES = [{"supercategory": "litter", "id": 1, "name": "cig_butt", "color": [160, 82, 45]}]
+CIGBUTTS_CATEGORIES = [{"id": 1, "name": "litter", "category": "litter", "color": [160, 82, 45]}]
 
 def _get_coco_instances_meta():
     thing_ids = [k["id"] for k in COCO_CATEGORIES if k["isthing"] == 1]
