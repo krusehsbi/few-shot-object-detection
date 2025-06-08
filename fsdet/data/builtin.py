@@ -391,7 +391,7 @@ def register_all_cigbutt():
     register_cigbutt_dataset(
         name = "cigbutts_30shot_train",
         json_path="/content/fsdet/datasets/cig_butts/train.json",
-        image_root="/content/fsdet/datasets/cig_butts",
+        image_root="/content/fsdet/datasets/cig_butts/train/images",
         thing_classes=metadata["thing_classes"],
         metadata=_get_builtin_metadata("cigbutts"),
     )
@@ -399,7 +399,7 @@ def register_all_cigbutt():
     register_cigbutt_dataset(
         name = "cigbutts_30shot_val",
         json_path="/content/fsdet/datasets/cig_butts/val.json",
-        image_root="/content/fsdet/datasets/cig_butts",
+        image_root="/content/fsdet/datasets/cig_butts/train/images",
         thing_classes=metadata["thing_classes"],
         metadata=_get_builtin_metadata("cigbutts"),
     )
