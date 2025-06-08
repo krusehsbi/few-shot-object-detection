@@ -6,7 +6,6 @@ MODEL:
     DEPTH: 101
   ROI_HEADS:
     NUM_CLASSES: 16
-    OUTPUT_LAYER: "CosineSimOutputLayers"
     FREEZE_FEAT: True
   BACKBONE:
     FREEZE: True
@@ -18,8 +17,16 @@ DATASETS:
 SOLVER:
   IMS_PER_BATCH: 16
   BASE_LR: 0.001
-  STEPS: (216000,)
-  MAX_ITER: 240000
-  CHECKPOINT_PERIOD: 12000
-  WARMUP_ITERS: 10
-OUTPUT_DIR: "/content/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/combined"
+  STEPS: (14400,)
+  MAX_ITER: 16000
+  WARMUP_ITERS: 100
+  WARMUP_FACTOR: 0.001
+  CHECKPOINT_PERIOD: 10000
+INPUT:
+  MIN_SIZE_TRAIN: (1024, 1088, 1152, 1216, 1280)
+  MAX_SIZE_TRAIN: 1600
+  MIN_SIZE_TEST: 1024
+  MAX_SIZE_TEST: 1600
+TEST:
+  EVAL_PERIOD: 1000
+OUTPUT_DIR: "/content/drive/MyDrive/fsdet/checkpoints/coco_taco/faster_rcnn/model_combined"
