@@ -203,6 +203,12 @@ def _evaluate_predictions_on_coco(coco_gt, coco_results, iou_type, catIds=None):
     """
     if len(coco_results) == 0:
         return None
+    
+    if "info" not in coco_gt.dataset:
+        coco_gt.dataset["info"] = {"description": "dummy"}
+    if "licenses" not in coco_gt.dataset:
+        coco_gt.dataset["licenses"] = []
+
 
     coco_dt = coco_gt.loadRes(coco_results)
     coco_eval = COCOeval(coco_gt, coco_dt, iou_type)
